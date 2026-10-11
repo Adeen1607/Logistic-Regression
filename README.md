@@ -61,3 +61,31 @@ Python, pandas, scikit-learn, stratified sampling, logistic regression, class we
 ## Responsible use
 
 This is an educational benchmark on historical, anonymized data. A production fraud system would also require probability calibration, drift monitoring, cost-sensitive validation, latency testing, explainability controls, human-review workflows, and periodic model governance.
+
+
+## Rebuild the reading edition
+
+```bash
+python -m pip install -r requirements-research.txt
+python scripts/build_research_site.py
+```
+
+This renders saved notebook outputs without rerunning model training or external APIs. To refresh findings, run the analysis commands above first, update `reports/research-findings.md`, and rebuild.
+
+<!-- research-edition:start -->
+## Research edition
+
+[Research report and final visual results](research/report.md) · [Browser-ready notebook catalogue](research/notebooks.html)
+
+Historical saved coursework results, **not a fresh rerun** and **not results of src/train.py**. Logistic regression reported 99.8402% accuracy but only 9.1837% fraud recall. KNN reported 48.9796% recall and 58.8957% F1; SVM reported 95.4545% precision but 21.4286% recall. KNN captured more positives in this recorded experiment, but preprocessing leakage limits any generalization claim.
+
+| Model | Precision | Recall | F1 |
+|---|---:|---:|---:|
+| Logistic regression | 0.818182 | 0.091837 | 0.165138 |
+| KNN | 0.738462 | 0.489796 | 0.588957 |
+| SVM | 0.954545 | 0.214286 | 0.350000 |
+
+
+The `research/` folder contains a professional static reading edition. The Pages workflow deploys it after GitHub Pages is enabled with **GitHub Actions** as the publishing source. Intended URL: `https://adeen1607.github.io/Logistic-Regression/`. Deployment status must be checked in Actions before treating that address as live.
+
+<!-- research-edition:end -->

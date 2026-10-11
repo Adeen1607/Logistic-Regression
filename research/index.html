@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Credit Card Fraud Model Comparison</title><link rel="stylesheet" href="style.css"></head><body><header><div><p class="meta">Mohammed Adeen Shaik · Research and coursework</p><h1>Credit Card Fraud Model Comparison</h1><nav><a href="index.html">Overview</a><a href="report.html">Research report</a><a href="notebooks.html">Explained notebooks</a><a href="https://github.com/Adeen1607/Logistic-Regression">Source repository</a></nav></div></header><main><h2>The study</h2><p>Why can very high accuracy coexist with poor fraud detection?</p><p>Historical saved coursework outputs using the Worldline and ULB credit-card dataset.</p><h2>What the evidence shows</h2><p>Historical saved coursework results, <strong>not a fresh rerun</strong> and <strong>not results of src/train.py</strong>. Logistic regression reported 99.8402% accuracy but only 9.1837% fraud recall. KNN reported 48.9796% recall and 58.8957% F1; SVM reported 95.4545% precision but 21.4286% recall. KNN captured more positives in this recorded experiment, but preprocessing leakage limits any generalization claim.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">Precision</th>
+<th style="text-align: right;">Recall</th>
+<th style="text-align: right;">F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logistic regression</td>
+<td style="text-align: right;">0.818182</td>
+<td style="text-align: right;">0.091837</td>
+<td style="text-align: right;">0.165138</td>
+</tr>
+<tr>
+<td>KNN</td>
+<td style="text-align: right;">0.738462</td>
+<td style="text-align: right;">0.489796</td>
+<td style="text-align: right;">0.588957</td>
+</tr>
+<tr>
+<td>SVM</td>
+<td style="text-align: right;">0.954545</td>
+<td style="text-align: right;">0.214286</td>
+<td style="text-align: right;">0.350000</td>
+</tr>
+</tbody>
+</table><h2>Read the work</h2><p><a href="report.html">Research report and final result figures</a> · <a href="notebooks.html">Explained notebooks</a></p><h2>Interpretation</h2><p>Historical notebook preprocessing was fitted before splitting, including outlier replacement and scaling. Cross-validation scaling was also performed before folding. Historical scores therefore have leakage risk and are not results of the newer pipeline. Rare fraud may be an informative outlier rather than an error.</p><footer>Evidence dates and limitations are documented in the report. Static pages display saved outputs; they do not execute Python, R, Streamlit or API calls.</footer></main></body></html>

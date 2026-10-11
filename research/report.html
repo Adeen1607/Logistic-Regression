@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Credit Card Fraud Model Comparison</title><link rel="stylesheet" href="style.css"></head><body><header><div><p class="meta">Mohammed Adeen Shaik · Research and coursework</p><h1>Credit Card Fraud Model Comparison</h1><nav><a href="index.html">Overview</a><a href="report.html">Research report</a><a href="notebooks.html">Explained notebooks</a><a href="https://github.com/Adeen1607/Logistic-Regression">Source repository</a></nav></div></header><main><h1 id="credit-card-fraud-model-comparison">Credit Card Fraud Model Comparison</h1>
+<p><strong>Author:</strong> Mohammed Adeen Shaik<br />
+<strong>Review date:</strong> 11 October 2026</p>
+<h2 id="research-question">Research question</h2>
+<p>Why can very high accuracy coexist with poor fraud detection?</p>
+<h2 id="data-and-provenance">Data and provenance</h2>
+<p>Historical saved coursework outputs using the Worldline and ULB credit-card dataset.</p>
+<p>Source materials are linked from the repository README. Input fingerprints are recorded in <a href="evidence.json">the evidence manifest</a> so a reader can identify the exact committed artifacts used in this review.</p>
+<h2 id="method-and-analytical-rationale">Method and analytical rationale</h2>
+<p>The original notebook compares logistic regression, KNN and SVM using a stratified split and reports precision, recall, F1 and ROC AUC. The newer src/train.py offers a separate training-only preprocessing and validation-threshold workflow.</p>
+<h2 id="findings-and-interpretation">Findings and interpretation</h2>
+<p>Historical saved coursework results, <strong>not a fresh rerun</strong> and <strong>not results of src/train.py</strong>. Logistic regression reported 99.8402% accuracy but only 9.1837% fraud recall. KNN reported 48.9796% recall and 58.8957% F1; SVM reported 95.4545% precision but 21.4286% recall. KNN captured more positives in this recorded experiment, but preprocessing leakage limits any generalization claim.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">Precision</th>
+<th style="text-align: right;">Recall</th>
+<th style="text-align: right;">F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logistic regression</td>
+<td style="text-align: right;">0.818182</td>
+<td style="text-align: right;">0.091837</td>
+<td style="text-align: right;">0.165138</td>
+</tr>
+<tr>
+<td>KNN</td>
+<td style="text-align: right;">0.738462</td>
+<td style="text-align: right;">0.489796</td>
+<td style="text-align: right;">0.588957</td>
+</tr>
+<tr>
+<td>SVM</td>
+<td style="text-align: right;">0.954545</td>
+<td style="text-align: right;">0.214286</td>
+<td style="text-align: right;">0.350000</td>
+</tr>
+</tbody>
+</table>
+<h2 id="limitations">Limitations</h2>
+<p>Historical notebook preprocessing was fitted before splitting, including outlier replacement and scaling. Cross-validation scaling was also performed before folding. Historical scores therefore have leakage risk and are not results of the newer pipeline. Rare fraud may be an informative outlier rather than an error.</p>
+<h2 id="reproduction">Reproduction</h2>
+<p>Use the setup commands and input contract in the <a href="https://github.com/Adeen1607/Logistic-Regression#readme">repository README</a>. Open the <a href="notebooks.html">notebook catalogue</a> for annotated code and saved outputs. Keep raw records and model binaries local; public reports contain aggregate results or source-embedded figures.</p>
+<h2 id="final-visual-results">Final visual results</h2>
+<p><img alt="Figure from Mohammed Adeen Shaik_8969152_Midterm.ipynb, original code cell 42" src="figures/Mohammed_Adeen_Shaik_8969152_Midterm-cell-42.png" /></p>
+<p><em>Figure from Mohammed Adeen Shaik_8969152_Midterm.ipynb, original code cell 42.</em></p>
+<p><img alt="Figure from Mohammed Adeen Shaik_8969152_Midterm.ipynb, original code cell 45" src="figures/Mohammed_Adeen_Shaik_8969152_Midterm-cell-45.png" /></p>
+<p><em>Figure from Mohammed Adeen Shaik_8969152_Midterm.ipynb, original code cell 45.</em></p>
+<p><img alt="Figure from Mohammed Adeen Shaik_8969152_Midterm.ipynb, original code cell 76" src="figures/Mohammed_Adeen_Shaik_8969152_Midterm-cell-76.png" /></p>
+<p><em>Figure from Mohammed Adeen Shaik_8969152_Midterm.ipynb, original code cell 76.</em></p><footer>Evidence dates and limitations are documented in the report. Static pages display saved outputs; they do not execute Python, R, Streamlit or API calls.</footer></main></body></html>
