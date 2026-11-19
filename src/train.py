@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import argparse
 import json
+
+import numpy as np
 from pathlib import Path
 
 import joblib
@@ -46,12 +48,18 @@ def load_data(path: Path) -> tuple[pd.DataFrame, pd.Series]:
     frame = frame[EXPECTED_COLUMNS].copy()
     if frame.isna().any().any():
         raise ValueError("Dataset contains missing values; investigate before training.")
+    features = frame.drop(columns=TARGET)
+    for column in features.columns:
+        numeric = pd.to_numeric(features[column], errors="coerce")
+        if not np.isfinite(numeric.to_numpy(dtype=float)).all():
+            raise ValueError(f"Feature {column} must contain only finite numeric values.")
+        features[column] = numeric
     if not frame[TARGET].isin([0, 1]).all():
         raise ValueError("Class must contain only zero and one.")
     if frame[TARGET].nunique() != 2:
         raise ValueError("Both legitimate and fraud observations are required.")
 
-    return frame.drop(columns=TARGET), frame[TARGET].astype(int)
+    return features, frame[TARGET].astype(int)
 
 
 def split_data(
